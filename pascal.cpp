@@ -1,17 +1,14 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-
-int coeff(int n, int k) {
-    if (k == 0 || k == n) return 1;
-    return coeff(n - 1, k - 1) + coeff(n - 1, k);
-}
-
-int number(int R, int C) {
-    return coeff(R - 1, C - 1);
-}
-int main() {
-    int R, C;
-    cin >> R >> C;
-
-    cout << number(R, C) << endl;
+int main(){
+	int C, R;
+	cin >> C >> R;
+	C--;
+	R--;
+	unsigned long long a = 1;
+	for(int i=0; i<R; i++){
+		a *= (C - i);
+        a /= (i + 1);
+	}
+	cout << a;
 }
